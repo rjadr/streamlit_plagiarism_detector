@@ -6,6 +6,8 @@ import re
 import spacy
 from spacy import displacy
 import streamlit as st
+import tika
+tika.initVM()
 from tika import parser as p
 from PAN2015 import SGSPLAG
 
