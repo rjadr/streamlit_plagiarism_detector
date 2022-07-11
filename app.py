@@ -261,8 +261,9 @@ else:
         dfb = df_pairs[df_pairs['Text B'] == text_id].explode(['Locations in A', 'Locations in B', 'Matching Text in A', 'Matching Text in B']).rename(columns = {'Text B':'Text A', 'Text A':'Text B', 'Locations in A':'Locations in B', 'Locations in B':'Locations in A', 'Matching Text in A': 'Matching Text in B', 'Matching Text in B':'Matching Text in A'})
         df_matches = pd.concat([dfa, dfb]).drop(columns=['Num Matches'])
         
-        st.header(f"Matches database {text_id.rsplit('.', 1)[0]}")
-        st.dataframe(df_matches)
+        st.header(f"Matching sentences comparison")
+        st.write(df_matches[['Text A', 'Text B', 'Matching Text in A', 'Matching Text in B']].to_html(), unsafe_allow_html=True)
+        st.markdown('##')
 
         st.download_button(
             label = "Download matches as csv",
