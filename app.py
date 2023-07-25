@@ -97,7 +97,7 @@ def get_spacy_doc(df, text_id, text):
     return doc
 
 
-@st.cache
+@st.cache_data
 def get_matches(text_a, text_b, parameters):
     """Retrieves text matches from two documents using SGSPLAG: https://github.com/CubasMike/plagiarism_detection_pan2015.
     Parameters
